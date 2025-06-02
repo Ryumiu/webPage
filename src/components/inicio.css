@@ -1,0 +1,32 @@
+.inicio-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .inicio-content {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .imagen-container {
+    flex: 1;
+  }
+  
+  .inicio-imagen {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .texto-container {
+    flex: 1;
+  }
+  
+  .texto-container p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #333;
+  }

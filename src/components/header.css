@@ -1,0 +1,21 @@
+.header {
+    padding: 1rem;
+    background-color: white;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .logo {
+    height: 60px;
+    width: auto;
+  }
+  
+  .title {
+    margin: 0;
+    font-size: 2rem;
+    color: #333;
+  }

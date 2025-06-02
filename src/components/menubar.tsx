@@ -1,17 +1,18 @@
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './menubar.css';
 
-const MenuBar = () => {
+const menubar: React.FC = () => {
   return (
-    <nav className="bg-blue-800 text-white p-4">
-      <ul className="flex flex-col md:flex-row gap-4 justify-center">
-        <li><Link to="/" className="hover:text-gray-300">Inicio</Link></li>
-        <li><Link to="/contenido" className="hover:text-gray-300">Contenido</Link></li>
-        <li><Link to="/servicios" className="hover:text-gray-300">Servicios</Link></li>
-        <li><Link to="/contactos" className="hover:text-gray-300">Contactos</Link></li>
-        <li><Link to="/acerca" className="hover:text-gray-300">Acerca de</Link></li>
+    <nav className="menubar">
+      <ul className="menu-list">
+        <li className="menu-item"><Link to="/">Inicio</Link></li>
+        <li className="menu-item"><Link to="/acerca-de">Acerca de</Link></li>
+        <li className="menu-item"><Link to="/servicio">Servicio</Link></li>
+        <li className="menu-item"><Link to="/contactos">Contactos</Link></li>
       </ul>
     </nav>
   );
 };
 
-export default MenuBar;
+export default menubar;
