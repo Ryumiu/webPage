@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     <footer className="footer">
       <div className="footer-content">
         <h3>Mundo Animal - Tu Mejor Amigo</h3>
-        <p>© 2024 Todos los derechos reservados</p>
+        <p>© 2025 Todos los derechos reservados</p>
         <div className="social-icons">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
             <FaFacebook className="social-icon" />
