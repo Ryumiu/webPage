@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/header';
 import MenuBar from './components/menubar';
-import Inicio from './components/inicio';
+//import Inicio from './components/inicio';
+import InicioVideo from './components/inicioVideo';
 import AcercaDe from './components/acercade';
 import Services from './components/services';   
 import Contact from './components/contact';     
@@ -17,7 +18,7 @@ function App() {
         <MenuBar />
         <main>
           <Routes>
-            <Route path="/" element={<Inicio />} />
+            <Route path="/" element={<InicioVideo />} />
             <Route path="/acerca-de" element={<AcercaDe />} />
             <Route path="/servicio" element={<Services />} />   
             <Route path="/contactos" element={<Contact />} />   
