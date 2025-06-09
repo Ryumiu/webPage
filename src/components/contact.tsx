@@ -6,12 +6,16 @@ const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
+    pais: '',
+    telefono: '',
     mensaje: ''
   });
 
   const [errors, setErrors] = useState({
     nombre: '',
     email: '',
+    pais: '',
+    telefono: '',
     mensaje: ''
   });
 
@@ -25,6 +29,10 @@ const Contact: React.FC = () => {
 
   const validateEmail = (email: string) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const validatePhone = (phone: string) => {
+    return /^\+?[0-9]{8,15}$/.test(phone);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -43,6 +51,17 @@ const Contact: React.FC = () => {
       newErrors.email = 'El correo no es válido.';
       valid = false;
     }
+    if (!formData.pais.trim()) {
+      newErrors.pais = 'El país es obligatorio.';
+      valid = false;
+    }
+    if (!formData.telefono.trim()) {
+      newErrors.telefono = 'El teléfono es obligatorio.';
+      valid = false;
+    } else if (!validatePhone(formData.telefono)) {
+      newErrors.telefono = 'El teléfono no es válido.';
+      valid = false;
+    }
     if (!formData.mensaje.trim()) {
       newErrors.mensaje = 'El mensaje es obligatorio.';
       valid = false;
@@ -56,7 +75,7 @@ const Contact: React.FC = () => {
     try {
       const response = await guardarContacto(formData);
       setResultado(`✅ ${response.message} (ID: ${response.id})`);
-      setFormData({ nombre: '', email: '', mensaje: '' });
+      setFormData({ nombre: '', email: '', pais: '', telefono: '', mensaje: '' });
     } catch (error: any) {
       setResultado(`❌ Error: ${error.message}`);
     }
@@ -84,6 +103,24 @@ const Contact: React.FC = () => {
             onChange={handleChange}
           />
           {errors.email && <span className="error">{errors.email}</span>}
+
+          <input
+            type="text"
+            name="pais"
+            placeholder="País"
+            value={formData.pais}
+            onChange={handleChange}
+          />
+          {errors.pais && <span className="error">{errors.pais}</span>}
+
+          <input
+            type="tel"
+            name="telefono"
+            placeholder="Teléfono (ej: +34612345678)"
+            value={formData.telefono}
+            onChange={handleChange}
+          />
+          {errors.telefono && <span className="error">{errors.telefono}</span>}
 
           <textarea
             name="mensaje"

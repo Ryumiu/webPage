@@ -32,22 +32,22 @@ dbConnection.connect((err) => {
 
 // Endpoint: guardar contacto (por ejemplo desde formulario)
 app.post("/api/registro", (req, res) => {
-  const { nombre, email, mensaje } = req.body;
+  const { nombre, email, pais, telefono, mensaje } = req.body;
   console.log("📩 Datos recibidos en /api/registro:", req.body);
 
-  if (!nombre || !email) {
-    return res.status(400).json({ error: "Nombre y email son obligatorios." });
+  if (!nombre || !email || !pais || !telefono) {
+    return res.status(400).json({ error: "Nombre, email, país y teléfono son obligatorios." });
   }
 
-  const query = "INSERT INTO contactos (nombre, email, mensaje) VALUES (?, ?, ?)";
-  dbConnection.query(query, [nombre, email, mensaje], (error, results) => {
+  const query = "INSERT INTO contactos (nombre, email, pais, telefono, mensaje) VALUES (?, ?, ?, ?, ?)";
+  dbConnection.query(query, [nombre, email, pais, telefono, mensaje], (error, results) => {
     if (error) {
       console.error("❌ Error al insertar datos en la tabla:", error);
       return res.status(500).json({ error: "Error al guardar los datos." });
     }
 
     res.status(201).json({
-      message: "✅ Datos guardados correctamente.",
+      message: " Datos guardados correctamente.",
       id: results.insertId,
     });
   });
@@ -55,22 +55,22 @@ app.post("/api/registro", (req, res) => {
 
 // Endpoint duplicado: puedes mantener solo uno si lo deseas
 app.post("/api/save", (req, res) => {
-  const { nombre, email, mensaje } = req.body;
+  const { nombre, email, pais, telefono, mensaje } = req.body;
   console.log("📩 Datos recibidos en /api/save:", req.body);
 
-  if (!nombre || !email) {
-    return res.status(400).json({ error: "Nombre y email son obligatorios." });
+  if (!nombre || !email || !pais || !telefono) {
+    return res.status(400).json({ error: "Nombre, email, país y teléfono son obligatorios." });
   }
 
-  const query = "INSERT INTO contactos (nombre, email, mensaje) VALUES (?, ?, ?)";
-  dbConnection.query(query, [nombre, email, mensaje], (error, results) => {
+  const query = "INSERT INTO contactos (nombre, email, pais, telefono, mensaje) VALUES (?, ?, ?, ?, ?)";
+  dbConnection.query(query, [nombre, email, pais, telefono, mensaje], (error, results) => {
     if (error) {
       console.error("❌ Error al insertar datos en la tabla:", error);
       return res.status(500).json({ error: "Error al guardar los datos." });
     }
 
     res.status(201).json({
-      message: "✅ Datos guardados correctamente.",
+      message: " Datos guardados correctamente.",
       id: results.insertId,
     });
   });
