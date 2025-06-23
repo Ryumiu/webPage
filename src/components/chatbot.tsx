@@ -22,16 +22,17 @@ const Chatbot: React.FC = () => {
   const autoResponses: AutoResponse[] = [
     {
       keywords: ['servicio', 'servicios', 'ofrecen', 'tienen'],
-      response: `Nuestros servicios principales incluyen:
+      response: `Nuestros servicios principales incluyen: 
 - Consulta veterinaria general
 - Vacunación completa
 - Desparasitación
 - Cirugías menores y mayores
 - Limpieza dental
 - Peluquería canina
+- Adopción responsable
 - Hospitalización
 - Emergencias 24/7
-¿Te gustaría saber más sobre algún servicio en particular?`
+¿Te gustaría saber más sobre algún servicio su costo en particular?`
     },
     {
       keywords: ['precio', 'precios', 'costo', 'costos', 'valor', 'cuanto', 'cuánto'],
@@ -57,7 +58,7 @@ Los precios pueden variar según el caso específico.`
     },
     {
       keywords: ['ubicación', 'dirección', 'donde', 'dónde', 'llegar'],
-      response: 'Estamos ubicados en [Dirección de la veterinaria]. Puedes encontrarnos fácilmente en Google Maps como "Mundo Animal".'
+      response: 'Estamos ubicados en la Av. Panamericana a lado del supermercado Hipermaxi. Puedes encontrarnos fácilmente en Google Maps como "Mundo Animal".'
     }
   ];
 

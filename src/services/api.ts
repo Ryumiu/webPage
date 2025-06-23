@@ -2,16 +2,17 @@
 export interface ContactoData {
   nombre: string;
   email: string;
+  pais: string;
+  telefono: string;
   mensaje: string;
 }
-
 export interface ApiResponse {
   message: string;
   id: number;
 }
 
 export async function guardarContacto(data: ContactoData): Promise<ApiResponse> {
-  const response = await fetch('http://localhost:3000/api/save', {
+  const response = await fetch('http://localhost:3001/api/registro', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
